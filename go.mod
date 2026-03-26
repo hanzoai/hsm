@@ -1,4 +1,4 @@
-module github.com/luxfi/hsm
+module github.com/hanzoai/hsm
 
 go 1.26.1
 
