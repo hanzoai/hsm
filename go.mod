@@ -2,12 +2,13 @@ module github.com/hanzoai/hsm
 
 go 1.26.3
 
-require github.com/luxfi/crypto v1.17.44
+require github.com/luxfi/crypto v1.19.0
 
 require (
 	github.com/ProjectZKM/Ziren/crates/go-runtime/zkvm_runtime v0.0.0-20260215031811-a0ab0b218a81 // indirect
 	github.com/cloudflare/circl v1.6.3 // indirect
 	github.com/decred/dcrd/dcrec/secp256k1/v4 v4.4.0 // indirect
+	github.com/luxfi/accel v1.0.7 // indirect
 	github.com/luxfi/cache v1.1.0 // indirect
 	github.com/luxfi/ids v1.2.9 // indirect
 	github.com/luxfi/mock v0.1.0 // indirect
