@@ -1,6 +1,6 @@
 module github.com/hanzoai/hsm
 
-go 1.26.4
+go 1.26.5
 
 require github.com/luxfi/crypto v1.19.0
 
