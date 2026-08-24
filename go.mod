@@ -1,4 +1,4 @@
-module github.com/hanzoai/hsm
+module hanzo.ai/hsm
 
 go 1.26.5
 
