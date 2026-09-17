@@ -30,7 +30,7 @@ func (s *ZymbitSigner) apiAddr() string {
 
 func (s *ZymbitSigner) Sign(ctx context.Context, keyID string, message []byte) ([]byte, error) {
 	digest := sha256.Sum256(message)
-	reqBody, _ := json.Marshal(map[string]interface{}{
+	reqBody, _ := json.Marshal(map[string]any{
 		"slot":   keyID,
 		"digest": base64.StdEncoding.EncodeToString(digest[:]),
 	})
@@ -68,7 +68,7 @@ func (s *ZymbitSigner) Sign(ctx context.Context, keyID string, message []byte) (
 
 func (s *ZymbitSigner) Verify(ctx context.Context, keyID string, message, signature []byte) (bool, error) {
 	digest := sha256.Sum256(message)
-	reqBody, _ := json.Marshal(map[string]interface{}{
+	reqBody, _ := json.Marshal(map[string]any{
 		"slot":      keyID,
 		"digest":    base64.StdEncoding.EncodeToString(digest[:]),
 		"signature": base64.StdEncoding.EncodeToString(signature),

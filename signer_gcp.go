@@ -31,7 +31,7 @@ func (s *GCPKMSSigner) Sign(ctx context.Context, keyID string, message []byte) (
 	}
 
 	digest := sha256.Sum256(message)
-	reqBody, _ := json.Marshal(map[string]interface{}{
+	reqBody, _ := json.Marshal(map[string]any{
 		"digest": map[string]string{
 			"sha256": base64.StdEncoding.EncodeToString(digest[:]),
 		},

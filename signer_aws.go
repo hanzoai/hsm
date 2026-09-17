@@ -27,7 +27,7 @@ func (s *AWSKMSSigner) Sign(ctx context.Context, keyID string, message []byte) (
 	}
 
 	digest := sha256.Sum256(message)
-	reqBody, _ := json.Marshal(map[string]interface{}{
+	reqBody, _ := json.Marshal(map[string]any{
 		"KeyId":            keyID,
 		"Message":          base64.StdEncoding.EncodeToString(digest[:]),
 		"MessageType":      "DIGEST",
@@ -79,7 +79,7 @@ func (s *AWSKMSSigner) Verify(ctx context.Context, keyID string, message, signat
 	}
 
 	digest := sha256.Sum256(message)
-	reqBody, _ := json.Marshal(map[string]interface{}{
+	reqBody, _ := json.Marshal(map[string]any{
 		"KeyId":            keyID,
 		"Message":          base64.StdEncoding.EncodeToString(digest[:]),
 		"MessageType":      "DIGEST",

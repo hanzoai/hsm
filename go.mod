@@ -1,6 +1,6 @@
 module hanzo.ai/hsm
 
-go 1.26.5
+go 1.27.1
 
 require github.com/luxfi/crypto v1.19.0
 

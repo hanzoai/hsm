@@ -48,7 +48,7 @@ func (p *AWSKMSProvider) GetPassword(ctx context.Context, keyID string) (string,
 		return "", fmt.Errorf("hsm/aws: failed to base64-decode ciphertext: %w", err)
 	}
 
-	reqBody := map[string]interface{}{
+	reqBody := map[string]any{
 		"CiphertextBlob": base64.StdEncoding.EncodeToString(ciphertext),
 	}
 	if p.KeyID != "" {

@@ -418,7 +418,7 @@ func TestLocalSignerConcurrent(t *testing.T) {
 	ctx := context.Background()
 	msg := []byte("concurrent")
 	done := make(chan bool, 20)
-	for i := 0; i < 20; i++ {
+	for range 20 {
 		go func() {
 			sig, err := s.Sign(ctx, "shared", msg)
 			if err != nil {
@@ -430,7 +430,7 @@ func TestLocalSignerConcurrent(t *testing.T) {
 			done <- ok
 		}()
 	}
-	for i := 0; i < 20; i++ {
+	for range 20 {
 		if !<-done {
 			t.Error("concurrent verification failed")
 		}
@@ -442,7 +442,7 @@ func TestMLDSAConcurrent(t *testing.T) {
 	ctx := context.Background()
 	msg := []byte("concurrent pq")
 	done := make(chan bool, 20)
-	for i := 0; i < 20; i++ {
+	for range 20 {
 		go func() {
 			sig, err := s.Sign(ctx, "shared-pq", msg)
 			if err != nil {
@@ -454,7 +454,7 @@ func TestMLDSAConcurrent(t *testing.T) {
 			done <- ok
 		}()
 	}
-	for i := 0; i < 20; i++ {
+	for range 20 {
 		if !<-done {
 			t.Error("concurrent PQ verification failed")
 		}
